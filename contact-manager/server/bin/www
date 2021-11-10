@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+// The bin/ directory serves as a location where you can define your various startup scripts. 
+// The www is an example to start the express app as a web server; application entry point.
 
 /**
  * Module dependencies.

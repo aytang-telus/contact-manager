@@ -6,7 +6,10 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "clean": "rm -rf ./dist/api && rm -rf ./dist/public/",
+    "cp:www": "mkdir -p ./dist/api/bin && cp ./server/bin/www ./dist/api/bin/",
+    "dev": "concurrently -k \"tsc -p ./server/tsconfig.api.json -w\" \"cd ./dist/api && nodemon -r ./bin/www --watch\" \"ng build --watch\""
   },
   "private": true,
   "dependencies": {
@@ -18,6 +21,11 @@
     "@angular/platform-browser": "~12.2.0",
     "@angular/platform-browser-dynamic": "~12.2.0",
     "@angular/router": "~12.2.0",
+    "body-parser": "^1.19.0",
+    "connect-livereload": "^0.6.1",
+    "cors": "^2.8.5",
+    "livereload": "^0.9.3",
+    "mongoose": "^6.0.12",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

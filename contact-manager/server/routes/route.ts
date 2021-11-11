@@ -7,11 +7,11 @@ router.get('/', (req, res, next) => {
     res.send('This is the api.');
 })
 
-router.get('/contact', (req, res, next) =>
+router.get('/contacts', (req, res, next) => {
     Contact.find(function(err, contacts) {
         res.json(contacts);
-    })
-);
+    });
+ });
 
 router.post('/contact', (req, res, next) => {
     let addContact = new Contact ({

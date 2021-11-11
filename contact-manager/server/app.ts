@@ -3,9 +3,11 @@ import * as path from 'path';  // < -- add this
 import { Express, Request, Response } from 'express';
 import * as livereload from 'livereload';
 import * as connectLivereload from 'connect-livereload';
-import * as mongoose from 'mongoose'; 
+import { ConnectOptions } from 'mongoose';
+import * as mongoose from 'mongoose';
 import * as bodyparser from 'body-parser';
 import * as cors from 'cors';
+
 
 // This creates an express application object which is named app by convention
 // sets up the application with various settings and middleware
@@ -18,11 +20,11 @@ export default function createApp(): Express {
     const route = require('./routes/route');
     const clientDir = path.join(__dirname, '../public');  
 
-    // mongoose.connect('mongodb://localhost:27017/contactlist', {useNewUrlParser: true });
-    mongoose.connect('mongodb://localhost:27017/contactlist');
+    //mongoose.connect('mongodb://localhost:27017/contactlist', {useNewUrlParser: true });
+    mongoose.connect('mongodb://localhost:27017/contactlist', {useNewUrlParser: true } as ConnectOptions);
     
     mongoose.connection.on('connected', ()=>{
-        console.log('Connected to database mongodb port 21017');
+        console.log('Connected to database mongodb port 27017');
     });
 
     mongoose.connection.on('error', (err)=>{

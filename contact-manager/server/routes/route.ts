@@ -1,7 +1,6 @@
 import * as express from 'express';
 
 const router = express.Router();
-
 const Contact = require('../models/contact');
 
 router.get('/contact', (req, res, next) =>
@@ -25,5 +24,7 @@ router.post('/contact', (req, res, next) => {
         }
     });
 });
+
+module.exports = router
 
 

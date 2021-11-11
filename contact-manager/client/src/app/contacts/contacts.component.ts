@@ -34,15 +34,15 @@ export class ContactsComponent implements OnInit {
       phone: this.angForm.value.phone
     };
 
-    this.contactService.addContacts(newContact).subscribe( (contact:any) => {
+    this.contactService.addContact(newContact).subscribe( (contact: Contact) => {
       this.contacts.push(contact);
       this.contactService.getContacts()
-          .subscribe((contacts: any) => this.contacts = contacts);
+          .subscribe((contacts: Contact[]) => this.contacts = contacts);
     });
 
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.angForm = this.fb.group({
       first_name: ['', Validators.required ],
       last_name: ['', Validators.required ],
@@ -50,7 +50,7 @@ export class ContactsComponent implements OnInit {
     });
 
     this.contactService.getContacts()
-        .subscribe( (contacts: any) => this.contacts = contacts);
+        .subscribe( (contacts: Contact[]) => this.contacts = contacts);
   }
 
 }

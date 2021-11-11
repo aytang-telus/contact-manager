@@ -55,6 +55,7 @@ export default function createApp(): Express {
     
     app.listen(port, () => {
         console.log('Server started at port:' + port);
+        console.log('Client Directory: ' + clientDir);
     });
 
     return app;

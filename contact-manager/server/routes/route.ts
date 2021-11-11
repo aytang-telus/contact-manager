@@ -3,6 +3,10 @@ import * as express from 'express';
 const router = express.Router();
 const Contact = require('../models/contact');
 
+router.get('/', (req, res, next) => {
+    res.send('This is the api.');
+})
+
 router.get('/contact', (req, res, next) =>
     Contact.find(function(err, contacts) {
         res.json(contacts);

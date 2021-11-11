@@ -1,6 +1,6 @@
 <div class = "container">
 
-    <h2 class = "page-header" align="center" > Add Contact </h2>
+    <h2 class = "page-header" align="center" > Contact Manager </h2>
 
     <form [formGroup]="angForm" (submit) = "addContact()" (keydown.enter)="$event.preventDefault()">
 
@@ -57,9 +57,9 @@
         <div class = "col-md-3">{{contact.first_name}}</div>
         <div class = "col-md-3">{{contact.last_name}}</div>
         <div class = "col-md-3">{{contact.phone}}</div>
-        <!-- <div class = "col-md-3"><input type= "button" (click) = "deleteContact(contact._id)" value = "Delete" class = "btn btn-danger">
+        <div class = "col-md-3"><input type= "button" (click) = "getContacts()" value = "Delete" class = "btn btn-danger">
           <br> <br>
-        </div> -->
+        </div>
       </div>
 
     </div>

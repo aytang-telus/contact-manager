@@ -13,16 +13,28 @@ router.get('/contacts', (req, res, next) => {
     });
  });
 
+ router.delete('/contact/:id', (req, res, next) => {
+    Contact.deleteMany({_id: req.params.id}, function(err, result){
+        if(err) {
+            res.json(err);
+        } else {
+            res.json(result);
+        }
+    });
+});
+
 router.post('/contact', (req, res, next) => {
     let addContact = new Contact ({
         first_name : req.body.first_name,
         last_name : req.body.last_name,
-        phone : req.body.phone
+        phone : req.body.phone,
+        email : req.body.email,
+        notes : req.body.notes
     });
 
     addContact.save((err, contact) => {
         if (err) { 
-            res.json({msg: "Failed to add contact"});
+            res.json(err);
         } else {
             res.json({msg: "Success"});
         }

@@ -16,6 +16,8 @@ export class ContactsComponent implements OnInit {
   first_name: string;
   last_name: string;
   phone: string;
+  email: string;
+  notes: string;
   angForm: FormGroup;
   submitted = false;
 
@@ -31,7 +33,9 @@ export class ContactsComponent implements OnInit {
     const newContact = {
       first_name: this.angForm.value.first_name,
       last_name: this.angForm.value.last_name,
-      phone: this.angForm.value.phone
+      phone: this.angForm.value.phone,
+      email: this.angForm.value.email,
+      notes: this.angForm.value.notes
     };
 
     this.contactService.addContact(newContact).subscribe( (contact: Contact) => {
@@ -42,11 +46,26 @@ export class ContactsComponent implements OnInit {
 
   }
 
+  deleteContact(id: any) {
+    const contacts = this.contacts;
+
+    this.contactService.deleteContact(id)
+        .subscribe(suc => { 
+            for (let i = 0; i < contacts.length; i++) {
+              if (contacts[i]._id == id) {
+                contacts.splice(i, 1);
+              }
+            }
+        });
+  }
+
   ngOnInit() {
     this.angForm = this.fb.group({
       first_name: ['', Validators.required ],
       last_name: ['', Validators.required ],
-      phone: ['', [Validators.required, Validators.minLength(10)] ]
+      phone: ['', [Validators.required, Validators.minLength(10)] ],
+      email: ['', Validators.required ],
+      notes: ['']
     });
 
     this.contactService.getContacts()

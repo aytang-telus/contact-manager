@@ -14,6 +14,7 @@ Access the application at localhost:8000.
 <p align = 'center'>
   <img src = '/sample.png'>
 </p>
+
 ## Launch via Docker
 
 1. Clone repository

@@ -8,12 +8,13 @@ Supported Operations:
 - Display existing contacts
 - Delete contact
 
-Access the application at localhost:8000.
+Access the application at localhost:8080.
 
 
 <p align = 'center'>
   <img src = '/sample.png'>
 </p>
+
 ## Launch via Docker
 
 1. Clone repository

@@ -1,0 +1,21 @@
+version: '3.5' 
+
+services: 
+    angular-service: 
+      container_name: contact-manager
+      build: 
+        context: ./contact-manager
+        dockerfile: Dockerfile
+      ports: 
+        - '3000:3000' 
+        - '8000:8000'
+      links:
+        - database  
+      depends_on:
+        - database  
+    database: 
+      image: mongo:latest 
+      container_name: contact-manager-db
+      ports:
+        - "27017:27017" 
+      command: mongod --port 27017 --bind_ip_all

@@ -21,7 +21,7 @@ export default function createApp(): Express {
     const clientDir = path.join(__dirname, '../public');  
 
     //mongoose.connect('mongodb://localhost:27017/contactlist', {useNewUrlParser: true });
-    mongoose.connect('mongodb://localhost:27017/contactlist', {useNewUrlParser: true } as ConnectOptions);
+    mongoose.connect('mongodb://database:27017/contactlist', {useNewUrlParser: true } as ConnectOptions);
     
     mongoose.connection.on('connected', ()=>{
         console.log('Connected to database mongodb port 27017');

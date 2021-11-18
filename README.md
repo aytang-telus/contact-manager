@@ -10,6 +10,7 @@ Supported Operations:
 
 Access the application at localhost:8080.
 
+**Static files are served at `/static` in the nginx container.**
 
 <p align = 'center'>
   <img src = '/sample.png'>
@@ -18,15 +19,15 @@ Access the application at localhost:8080.
 ## Launch via Docker
 
 1. Clone repository
+
    ```
    git clone git@csil-git1.cs.surrey.sfu.ca:aytang/contact-manager.git
    ```
-
 2. Build the Docker image and run the container.
+
    ```
    docker compose build && docker compose up
    ```
-
 3. Access the web application via localhost:8080.
 
 ## Launch via npm
@@ -51,4 +52,3 @@ Access the application at localhost:8080.
    npm run launch
    ```
 4. Access application at localhost:8080.
-

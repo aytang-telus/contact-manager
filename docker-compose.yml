@@ -3,6 +3,7 @@ version: '3.5'
 services: 
     angular-service: 
       container_name: contact-manager
+      image: gcr.io/cloud-deploy-test-lab-f751b2/contact-manager:latest
       build: 
         context: ./contact-manager
         dockerfile: Dockerfile

@@ -1,6 +1,6 @@
 steps:
 - name: 'gcr.io/$PROJECT_ID/docker-compose'
   args: ['build']
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/$PROJECT_ID/workspace_angular-service:latest']
-images: ['gcr.io/$PROJECT_ID/workspace_angular-service:latest']  
+- name: 'gcr.io/$PROJECT_ID/docker-compose'
+  args: ['push']
+images: ['gcr.io/$PROJECT_ID/contact-manager:latest']  

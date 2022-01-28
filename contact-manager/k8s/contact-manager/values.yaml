@@ -5,10 +5,10 @@
 replicaCount: 1
 
 image:
-  repository: gcr.io/cloud-deploy-test-lab-f751b2/
+  repository: gcr.io/cloud-deploy-test-lab-f751b2/contact-manager:latest
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+  tag: "latest"
 
 imagePullSecrets: []
 nameOverride: "contact-manager"

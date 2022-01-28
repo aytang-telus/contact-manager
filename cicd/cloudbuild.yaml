@@ -1,0 +1,18 @@
+steps:
+
+- name: 'gcr.io/cloud-builders/docker'
+  id: 'Build Image'
+  args: ['build', '.', '-t', 'gcr.io/${_REPO_ID}/${_NAMESPACE}/${_APP}:latest']
+
+- name: "gcr.io/cloud-builders/gsutil"
+  id: 'Copy Helm Files to Cloud Storage'
+  args: ['cp', '-Z', 'helm/values*yaml', 'gs://${_REPO_ID}-kubernetes-manifests/${_NAMESPACE}/']
+  dir: ${_BASE_DIR}
+
+images: [ 'gcr.io/${_REPO_ID}/${_NAMESPACE}/${_APP}:latest' ]
+
+substitutions:
+  _APP: contact-manager
+  _BASE_DIR: cicd
+  _NAMESPACE: cloud-deploy-test
+  _REPO_ID: cio-gke-devops-e4993356

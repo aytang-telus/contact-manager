@@ -2,5 +2,5 @@ steps:
 - name: 'gcr.io/$PROJECT_ID/docker-compose'
   args: ['build']
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['tag', 'contact-manager:latest', 'gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA']
+  args: ['tag', '$REPO_NAME:$COMMIT_SHA', 'gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA']
 images: ['gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA']  

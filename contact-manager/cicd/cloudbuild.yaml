@@ -2,5 +2,5 @@ steps:
 - name: 'gcr.io/$PROJECT_ID/docker-compose'
   args: ['build']
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['tag', '$REPO_NAME:$COMMIT_SHA', 'gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA']
-images: ['gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA']  
+  args: ['push', 'gcr.io/$PROJECT_ID/workspace_angular-service:latest']
+images: ['gcr.io/$PROJECT_ID/workspace_angular-service:latest']  

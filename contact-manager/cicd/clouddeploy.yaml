@@ -1,0 +1,30 @@
+apiVersion: deploy.cloud.google.com/v1
+kind: DeliveryPipeline
+metadata:
+ name: contact-manager
+description: Anna's test pipeline
+serialPipeline:
+ stages:
+ - targetId: contact-manager-dev
+   profiles: []
+ - targetId: contact-manager-pr
+   profiles: []   
+---
+
+apiVersion: deploy.cloud.google.com/v1
+kind: Target
+metadata:
+ name: contact-manager-dev
+description: development cluster
+gke:
+ cluster: projects/PROJECT_ID/locations/us-central1/clusters/anna-cluster-dev
+---
+
+apiVersion: deploy.cloud.google.com/v1
+kind: Target
+metadata:
+ name: contact-manager-pr
+description: development cluster
+gke:
+ cluster: projects/PROJECT_ID/locations/us-central1/clusters/anna-cluster-pr
+---

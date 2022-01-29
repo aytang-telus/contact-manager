@@ -1,0 +1,21 @@
+---
+# Source: contact-manager/templates/tests/test-connection.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "contact-manager.-test-connection"
+  labels:
+    helm.sh/chart: contact-manager-0.1.0
+    app.kubernetes.io/name: contact-manager
+    app.kubernetes.io/instance: RELEASE-NAME
+    app.kubernetes.io/version: "1.16.0"
+    app.kubernetes.io/managed-by: Helm
+  annotations:
+    "helm.sh/hook": test
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args: ['contact-manager.:80']
+  restartPolicy: Never

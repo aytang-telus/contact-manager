@@ -1,9 +1,19 @@
-apiVersion: skaffold/v2beta16
+apiVersion: skaffold/v2beta7
 kind: Config
+build:
+  artifacts:
+  - image: gcr.io/cloud-deploy-test-lab-f751b2/contact-manager:latest
+    docker:
+      cacheFrom:
+      - gcr.io/cloud-deploy-test-lab-f751b2/contact-manager:latest
+  googleCloudBuild:
+    projectId: ${PROJECT_ID}
 deploy:
- helm:
-   releases:
-     - name: contact-manager
-       chartPath: ../k8s/contact-manager/
-       artifactOverrides:
-         image: gcr.io/cloud-deploy-test-lab-f751b2/contact-manager:latest
+ kustomize:
+   paths: 
+   - ../kustomize
+# portForward:
+#   - resourceType: deployment
+#     resourceName: contact-manager-svc
+#     port: 8080
+#     localPort: 9000

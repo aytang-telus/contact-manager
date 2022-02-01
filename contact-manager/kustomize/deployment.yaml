@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: contact-manager
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      deployment: contact-manager
+  template:
+    metadata:
+      labels:
+        deployment: contact-manager
+    spec:
+      containers:
+      - name: contact-manager
+        image: gcr.io/cloud-deploy-test-lab-f751b2/contact-manager:latest
+        ports:
+        - containerPort: 8080

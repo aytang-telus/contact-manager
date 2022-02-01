@@ -6,8 +6,5 @@ description: Anna's test pipeline
 serialPipeline:
  stages:
  - targetId: test
-   profiles: []
  - targetId: staging   
-   profiles: [] 
  - targetId: prod
-   profiles: []   

@@ -13,7 +13,7 @@ build:
 deploy:
  kustomize:
    paths: 
-   - ../kustomize
+   - contact-manager/kustomize
 # portForward:
 #   - resourceType: deployment
 #     resourceName: contact-manager-svc

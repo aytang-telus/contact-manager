@@ -1,4 +1,8 @@
 steps:
+- name: 'gcr.io/cloud-builders/git'
+  entrypoint: /bin/sh
+  args:
+  - cd contact-manager/cicd/
 - name: gcr.io/k8s-skaffold/skaffold
   args:
     - skaffold

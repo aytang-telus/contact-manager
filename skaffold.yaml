@@ -1,11 +1,13 @@
 apiVersion: skaffold/v2beta7
 kind: Config
 build:
+  tagPolicy:
+    sha256: {}
   artifacts:
-  - image: gcr.io/cloud-deploy-test-lab-f751b2/contact-manager:latest
+  - image: gcr.io/cloud-deploy-test-lab-f751b2/contact-manager
     docker:
       cacheFrom:
-      - gcr.io/cloud-deploy-test-lab-f751b2/contact-manager:latest
+      - gcr.io/cloud-deploy-test-lab-f751b2/contact-manager
   googleCloudBuild:
     projectId: ${PROJECT_ID}
 deploy:

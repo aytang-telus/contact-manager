@@ -9,7 +9,7 @@ build:
       cacheFrom:
       - gcr.io/cloud-deploy-test-lab-f751b2/contact-manager
   googleCloudBuild:
-    projectId: ${PROJECT_ID}
+    projectId: cloud-deploy-test-lab-f751b2
 deploy:
  kustomize:
    paths: 

@@ -1,13 +1,13 @@
 ### STAGE 1: Build ###
 FROM node:14 as node
 
-COPY package.json package-lock.json ./
+COPY /contact-manager/package.json /contact-manager/package-lock.json ./
 
 RUN npm ci && mkdir /app && mv ./node_modules ./app
 
 WORKDIR /app
 
-COPY . /app/
+COPY contact-manager/ /app/
 
 RUN npm run launch
 
@@ -17,11 +17,11 @@ FROM node:14
 
 WORKDIR /app
 
-COPY package.json package-lock.json ./
+COPY /contact-manager/package.json /contact-manager/package-lock.json ./
 
 RUN npm ci
 
-COPY /server/ /app/
+COPY /contact-manager/server/ /app/
 
 COPY --from=node /app/dist /app/public
 
